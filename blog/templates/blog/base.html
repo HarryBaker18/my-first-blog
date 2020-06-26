@@ -1,7 +1,7 @@
 {% load static %}
 <html>
     <head>
-        <title>Django Girls blog</title>
+        <title>Harry Baker</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -10,11 +10,19 @@
     <body>
         <div class="page-header">
             {% if user.is_authenticated %}
-                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <a href="{% url 'post_new' %}" target="_blank" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                <a href="{% url 'post_new' %}" target="_blank" class="top-menu-txt">Add Post</p>
             {% endif %}
-            <h1><a href="/">Django Girls Blog</a></h1>
+            <h1><a href="/">Harry Baker</a></h1>
         </div>
-        <div class="content container">
+
+        <ul>
+            <li><a class="active" href="{% url 'post_list' %}"><span>Posts</span></a></li>
+            <li><a href="{% url 'cv' %}"><span>CV</span></a></li>
+            <li><a href="{% url 'contact' %}"><span>Contact</span></a></li>
+        </ul>
+        
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-8">
                     {% block content %}
